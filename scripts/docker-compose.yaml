@@ -1,0 +1,32 @@
+#funziona
+version: '3'
+services:
+
+  mongodb:
+    container_name: "mymongodb_container"
+    image: "mongo"
+    ports:
+      - 27017:27017
+  
+  neo4j:
+    container_name: "myneo4j_container"
+    image: "neo4j"
+    ports:
+      - 7474:7474
+      - 7687:7687
+    environment:
+      - NEO4J_AUTH=neo4j/neo4jnosqlproject
+      - NEO4J_dbms_memory_heap_maxSize=4G # Imposta la dimensione massima della heap a 4 GB
+      - NEO4J_dbms_memory_pagecache_size=3G # Imposta la dimensione della cache delle pagine a 3 GB
+    volumes:
+      # Sostituire il path
+      - "C:/Users/newth/Desktop/NoSqlScritto/progetto/neo4jdata:/var/lib/neo4j/import"
+
+ #   deploy:
+  #    resources:
+  #      limits:  # il PC utilizzato è Processore AMD Ryzen 7 5800H with Radeon Graphics, 3201 Mhz, 8 core, 16 RAM
+   #       cpus: '6'  # Assegna 6 core del tuo processore 
+    #      memory: '14g' # Assegna 12 GB di RAM
+
+
+
